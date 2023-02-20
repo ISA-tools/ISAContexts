@@ -55,6 +55,5 @@ class TestMapping(TestCase):
                                 field
                             ])
         df = DataFrame(mapping, columns=MAPPING_HEADERS)
-        print(df)
         with ExcelWriter(MAPPING_PATH, engine="xlsxwriter") as writer:
             df.to_excel(writer, index=False)
