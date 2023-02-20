@@ -24,18 +24,4 @@ jobs:
           pip install -r requirements.txt
       - name: Test with python unittest
         run: |
-          python -m unittest ./isacontexts/test_contexts.py
-      - name: Coveralls
-        uses: AndreMiras/coveralls-python-action@develop
-        with:
-          parallel: true
-          flag-name: Unit Test
-
-  coveralls_finish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: AndreMiras/coveralls-python-action@develop
-        with:
-          parallel-finished: true
+          python -m unittest discover isacontexts/
