@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
       - name: Test with python unittest
         run: |
-          python -m unittest ./isacontexts/test_contexts.py
+          python -m unittest discover isacontexts/
       - name: Coveralls
         uses: AndreMiras/coveralls-python-action@develop
         with:
