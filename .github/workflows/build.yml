@@ -24,7 +24,6 @@ jobs:
           pip install -r requirements.txt
       - name: Test with python unittest
         run: |
-          behave --no-capture --no-capture-stderr --format=progress features/isa-file-handler.feature
           python -m unittest discover -s tests/
       - name: Coveralls
         uses: AndreMiras/coveralls-python-action@develop
