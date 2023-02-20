@@ -22,7 +22,3 @@ def generate_report():
         mkdir(HTML_REPORT_PATH)
     with open(path.join(HTML_REPORT_PATH, 'index.html'), 'w') as fp:
         fp.write(template.render(get_report_data()))
-
-
-if __name__ == '__main__':
-    generate_report()

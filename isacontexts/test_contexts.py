@@ -42,7 +42,7 @@ class TestContexts(TestCase):
                     REPORT['missing_files'][vocabulary_name].append(context_filename)
         set_report(REPORT)
 
-    def context_tester(self, context_filepath: str, schema_file: str, vocabulary_name: str, context_filename: str):
+    def context_tester(self, context_filepath, schema_file, vocabulary_name, context_filename):
         self.assertTrue(exists(context_filepath))
         try:
             with open(context_filepath) as f:
@@ -53,7 +53,7 @@ class TestContexts(TestCase):
                 REPORT['parse_error'][vocabulary_name] = []
             REPORT['parse_error'][vocabulary_name].append(context_filename)
 
-    def coverage_tester(self, context: str, schema_file: str, vocabulary_name: str, context_filepath: str):
+    def coverage_tester(self, context, schema_file, vocabulary_name, context_filepath):
         fields = [field for field in self.schemas[schema_file] if not field.startswith('@') or field.startswith('_')]
         for field in fields:
             try:
