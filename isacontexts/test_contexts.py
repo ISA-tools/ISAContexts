@@ -74,9 +74,9 @@ class TestContexts(TestCase):
         try:
             self.assertIn(type(context_value), (str, dict))
             if type(context_value) == dict:
-                self.assertIn('@id', context_value)
-                self.assertNotEqual(context_value['@id'], '', msg='@id is empty')
-            prefixed_val = (context_value['@id'] if type(context_value) == dict else context_value).split(':')
+                self.assertIn('@type', context_value)
+                self.assertNotEqual(context_value['@type'], '', msg='@type is empty')
+            prefixed_val = (context_value['@type'] if type(context_value) == dict else context_value).split(':')
             self.assertIn(prefixed_val[0], context, msg='Prefix not found in context')
             prefix = context[prefixed_val[0]]
             url = prefix + prefixed_val[1]
