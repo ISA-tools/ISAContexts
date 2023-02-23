@@ -79,6 +79,7 @@ class TestContexts(TestCase):
             prefixed_val = (context_value['@type'] if type(context_value) == dict else context_value).split(':')
             self.assertIn(prefixed_val[0], context, msg='Prefix not found in context')
             prefix = context[prefixed_val[0]]
+            prefix += '/' if not prefix.endswith('/') else ''
             url = prefix + prefixed_val[1]
             try:
                 data = get(url, verify=False)
